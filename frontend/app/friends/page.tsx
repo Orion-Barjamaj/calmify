@@ -211,11 +211,13 @@ export default function Friends() {
                       borderRadius: "8px",
                       padding: "8px",
                     }}
-                    formatter={(value, _name, props) => [
-                      props?.payload?.label ?? value,
-                      "Level",
-                    ]}
+                    formatter={(
+                      value: number | undefined,
+                      _name: string,
+                      props: any,
+                    ) => [props?.payload?.label ?? value ?? "Unknown", "Level"]}
                   />
+
                   <Area
                     type="monotone"
                     dataKey="stress"
