@@ -1,3 +1,586 @@
 .container {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px 16px 112px;
+    width: 100%;
+    scroll-padding-bottom: 112px;
+}
+
+.notification {
+    background-color: #f7f7f7;
+    margin-left: auto;
+    height: 54px;
+    width: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topBar {
+    width: 100%;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profileIcon {
+    height: 56px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+.profileName {
+    font-size: 1.2rem;
+}
+
+/* Streak Container */
+.streakContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.streakCard {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.streakCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.streakIcon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.streakInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.streakNumber {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1;
+}
+
+.streakLabel {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Weekly Calendar */
+.weeklyCalendar {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+}
+
+.calendarHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.calendarTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.calendarSubtitle {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.calendarDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    overflow: auto;
+    padding: 4px;
+}
+
+.calendarDay {
+    height: 96px;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.2s ease;
+    padding: 6px;
+    border: 2px solid transparent;
+}
+
+.dayBall {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0px;
+    justify-content: space-between;
+}
+
+.calendarDay.uncheckedDay {
+    background-color: #f3f4f6;
+    border-color: #e5e7eb;
+}
+
+.calendarDay.calmDay {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-color: #6ee7b7;
+}
+
+.calendarDay.notCalmDay {
+    background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+    border-color: #f87171;
+}
+
+.calendarDay.today {
+    border-color: #bbe7ef;
+    border-width: 3px;
+    box-shadow: 0 0 0 3px rgba(187, 231, 239, 0.3);
+}
+
+.dayName {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dayNumber {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-top: 2px;
+}
+
+.checkMark {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 1rem;
+    color: #065f46;
+    font-weight: 900;
+}
+
+.xMark {
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    font-size: 0.9rem;
+    color: #991b1b;
+    font-weight: 900;
+}
+
+.dashboard_container {
+    flex-shrink: 0;
+}
+
+.stressChartCard {
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff 0%, #f7fafc 100%);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+    padding: 18px 16px;
+}
+
+.stressChartHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stressChartTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stressChartTitle h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+}
+
+.stressChartTitle p {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+    color: #667085;
+}
+
+.stressChartBadge {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dff4ff;
+    color: #185875;
+}
+
+.icon_chart {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart {
+    height: 220px;
+    margin-top: 16px;
+}
+
+.emptyChart {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #666;
+}
+
+.emptyChartIcon {
+    font-size: 2.5rem;
+    opacity: 0.5;
+}
+
+.emptyChart p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+.upload {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    gap: 16px;
+    flex-shrink: 0;
+    margin-bottom: 16px;
+}
+
+.upload span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.fileInputWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fileInputLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background-color: #fff;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.fileInputLabel:hover {
+    border-color: #bbe7ef;
+    background-color: #fafafa;
+}
+
+.fileInputLabel.hasFile {
+    border-color: #bbe7ef;
+    border-style: solid;
+    background-color: #f0f9fb;
+    color: #333;
+}
+
+.hiddenInput {
+    display: none;
+}
+
+.fileIcon {
+    font-size: 1.5rem;
+}
+
+.uploadButton {
+    padding: 14px 24px;
+    background-color: #bbe7ef;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.uploadButton:hover:not(:disabled) {
+    background-color: #a8dde7;
+    transform: translateY(-1px);
+}
+
+.uploadButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.breathingPrompt {
+    background: linear-gradient(135deg, #fff4e5 0%, #ffe8cc 100%);
+    border: 1px solid #ffd4a3;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.breathingPromptText {
+    margin: 0;
+    color: #7c3f00;
+    font-weight: 600;
+}
+
+.breathingPromptButton {
+    border: none;
+    background-color: #ffb55a;
+    color: #3b1f00;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.breathingPromptButton:hover {
+    background-color: #ffa642;
+}
+
+.fileName {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Modal styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background-color: white;
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 450px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modalIcon {
+    font-size: 4rem;
+    margin-bottom: 8px;
+}
+
+.modalTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.stressLevel {
+    font-size: 2.5rem;
+    font-weight: 800;
+    padding: 16px 32px;
+    border-radius: 16px;
+    text-transform: capitalize;
+}
+
+.stressLevel.calm {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.stressLevel.moderate {
+    background-color: #fed7aa;
+    color: #9a3412;
+}
+
+.stressLevel.stressed {
+    background-color: #fecaca;
+    color: #991b1b;
+}
+
+.modalMessage {
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.streakUpdate {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px;
+    animation: celebratePulse 0.6s ease-in-out;
+}
+
+@keyframes celebratePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.streakUpdateIcon {
+    font-size: 1.5rem;
+}
+
+.streakUpdateText {
+    font-weight: 700;
+    color: #92400e;
+    font-size: 1rem;
+}
+
+.streakBroken {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background-color: #fee2e2;
+    border-radius: 12px;
+}
+
+.streakBrokenIcon {
+    font-size: 1.5rem;
+}
+
+.streakBrokenText {
+    font-weight: 600;
+    color: #991b1b;
+    font-size: 0.95rem;
+}
+
+.closeButton {
+    width: 100%;
+    padding: 14px 24px;
+    background-color: #bbe7ef;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+}
+
+.closeButton:hover {
+    background-color: #a8dde7;
+    transform: translateY(-1px);
+}
+
+/* Custom scrollbar for webkit browsers */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #bbe7ef;
+    border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #a8dde7;
 }

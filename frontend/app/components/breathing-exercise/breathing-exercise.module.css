@@ -1,0 +1,149 @@
+.container {
+    background: linear-gradient(145deg, #f5fbff 0%, #e8f5fb 100%);
+    border: 1px solid #d7ebf4;
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #123548;
+}
+
+.rounds {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #2d6279;
+    background-color: #d9edf6;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.subtitle {
+    margin: 0;
+    color: #2e4b5b;
+    font-size: 0.92rem;
+    line-height: 1.4;
+}
+
+.animationArea {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-height: 110px;
+}
+
+.breathOrb {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #99d0e5 35%, #62b5d6 100%);
+    box-shadow: 0 10px 24px rgba(98, 181, 214, 0.25);
+    transform: scale(0.78);
+}
+
+.breathOrb.inhale {
+    animation: inhaleOrb var(--phase-duration) linear forwards;
+}
+
+.breathOrb.hold {
+    transform: scale(1.08);
+}
+
+.breathOrb.exhale {
+    animation: exhaleOrb var(--phase-duration) linear forwards;
+}
+
+.phaseInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.phaseLabel {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #123548;
+}
+
+.phaseTimer {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0f506b;
+    line-height: 1;
+}
+
+.progressTrack {
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background-color: #d9edf6;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #7fc8e6 0%, #4da9cf 100%);
+    transition: width 250ms ease;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.primaryButton,
+.secondaryButton {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primaryButton {
+    background-color: #4da9cf;
+    color: #fff;
+}
+
+.secondaryButton {
+    background-color: #d9edf6;
+    color: #214457;
+}
+
+@keyframes inhaleOrb {
+    from {
+        transform: scale(0.78);
+    }
+    to {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes exhaleOrb {
+    from {
+        transform: scale(1.08);
+    }
+    to {
+        transform: scale(0.72);
+    }
+}
+
+@media (max-width: 520px) {
+    .animationArea {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

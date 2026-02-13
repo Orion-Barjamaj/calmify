@@ -1,18 +1,18 @@
 .container {
     height: 80px;
     border-radius: 100px;
-    position: fixed;
-    bottom: 16px;
-    left: 50%;
-    transform: translate(-50%);
+
+    position: fixed;       /* stays in viewport */
+    bottom: 16px;         /* distance above the bottom / above search bar */
+    left: 50%;             /* horizontal center */
+    transform: translateX(-50%);
+
     background-color: #f8f8f8;
     padding: 8px;
     display: flex;
     gap: 8px;
-}
-
-.link:nth-child(1) {
-    background-color: #fdf795;
+    z-index: 1000;         /* make sure it’s above other content */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .link {
@@ -20,4 +20,15 @@
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    transition: .2s ease-in-out;
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    background-color: #fdf795;
 }

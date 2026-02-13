@@ -1,0 +1,202 @@
+.container {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 20px 16px 112px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.title {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+}
+
+.subtitle {
+    color: #667085;
+    font-size: 0.95rem;
+}
+
+.searchBar {
+    width: 100%;
+}
+
+.searchInput {
+    width: 100%;
+    border: 1px solid #d7e2ea;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.searchInput:focus {
+    border-color: #93cce6;
+    box-shadow: 0 0 0 3px rgba(147, 204, 230, 0.2);
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card {
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #ffffff 0%, #f7fafc 100%);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 80px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+    text-align: left;
+}
+
+.card:active {
+    transform: translateY(1px);
+}
+
+.friendIcon {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dff4ff;
+    color: #185875;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.open_menu_icon {
+    height: 32px;
+    font-size: 1rem !important;
+}
+
+.friend_info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.friendName {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.activity {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status {
+    color: #667085;
+}
+
+.ball {
+    background-color: rgb(0, 255, 0);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.offline {
+    background-color: grey;
+}
+
+.sheetOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 1100;
+}
+
+.sheetOverlayOpen {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sheet {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 105%);
+    width: min(480px, 100%);
+    background-color: #fff;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -12px 35px rgba(15, 23, 42, 0.18);
+    padding: 18px 16px 112px;
+    transition: transform 0.28s ease;
+    z-index: 1200;
+}
+
+.sheetOpen {
+    transform: translate(-50%, 0);
+}
+
+.sheetTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.sheetHeading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sheetHeading h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.sheetHeading p {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+    color: #667085;
+}
+
+.closeButton {
+    border: none;
+    background-color: #eff3f6;
+    color: #2b3a44;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.chartWrap {
+    height: 220px;
+    margin-top: 16px;
+}
+
+.emptyState {
+    text-align: center;
+    color: #667085;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f7fafc;
+    border: 1px dashed #d7e2ea;
+}
