@@ -116,7 +116,7 @@ export default function Dashboard() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("http://localhost:8000/analyze", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/analyze`, {
       method: "POST",
       body: formData,
     });
@@ -239,13 +239,10 @@ export default function Dashboard() {
       <div className={style.streakContainer}>
         <div className={style.streakCard}>
           <div className={style.streakInfo}>
-            <Image
-              src="/fire.png"
-              width={40}
-              height={40}
-              alt="fire"
-            ></Image>
-            <div className={style.streakNumber}>{streakData.currentStreak || 4}</div>
+            <Image src="/fire.png" width={40} height={40} alt="fire"></Image>
+            <div className={style.streakNumber}>
+              {streakData.currentStreak || 4}
+            </div>
             <div className={style.streakLabel}>Day Streak</div>
           </div>
         </div>
@@ -258,20 +255,19 @@ export default function Dashboard() {
               alt="best"
             ></Image>
 
-            <div className={style.streakNumber}>{streakData.bestStreak || 12}</div>
+            <div className={style.streakNumber}>
+              {streakData.bestStreak || 12}
+            </div>
             <div className={style.streakLabel}>Best Streak</div>
           </div>
         </div>
         <div className={style.streakCard}>
           <div className={style.streakInfo}>
-            <Image
-              src="/calm2.png"
-              width={40}
-              height={40}
-              alt="calm"
-            ></Image>
+            <Image src="/calm2.png" width={40} height={40} alt="calm"></Image>
 
-            <div className={style.streakNumber}>{streakData.totalCalmDays || 5}</div>
+            <div className={style.streakNumber}>
+              {streakData.totalCalmDays || 5}
+            </div>
             <div className={style.streakLabel}>Calm Days</div>
           </div>
         </div>
@@ -364,7 +360,7 @@ export default function Dashboard() {
                   <YAxis
                     domain={[0, 4]}
                     ticks={[1, 2, 3]}
-                    tickFormatter={(value) => {
+                    tickFormatter={(value: any) => {
                       if (value === 1) return "Calm";
                       if (value === 2) return "Moderate";
                       if (value === 3) return "Stressed";
