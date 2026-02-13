@@ -1,0 +1,23 @@
+.container {
+    height: 80px;
+    border-radius: 100px;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #f8f8f8;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+.link:nth-child(1) {
+    background-color: #fdf795;
+}
+
+.link {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: #fff;
+}
