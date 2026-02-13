@@ -88,7 +88,9 @@ export default function Friends() {
   const filteredFriends = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     if (!query) return friends;
-    return friends.filter((friend) => friend.name.toLowerCase().includes(query));
+    return friends.filter((friend) =>
+      friend.name.toLowerCase().includes(query),
+    );
   }, [searchQuery]);
 
   return (
@@ -125,7 +127,9 @@ export default function Friends() {
                 <div
                   className={`${style.ball}  ${idx % 2 === 0 ? style.offline : ""}`}
                 ></div>
-                <span className={style.status}>{idx % 2 === 0 ? "Offline" : "Active"}</span>
+                <span className={style.status}>
+                  {idx % 2 === 0 ? "Offline" : "Active"}
+                </span>
               </div>
             </div>
           </button>
@@ -147,7 +151,9 @@ export default function Friends() {
           <>
             <div className={style.sheetTop}>
               <div className={style.sheetHeading}>
-                <span className={`${style.friendIcon} ${style.open_menu_icon}`}>{selectedFriend.icon}</span>
+                <span className={`${style.friendIcon} ${style.open_menu_icon}`}>
+                  {selectedFriend.icon}
+                </span>
                 <div>
                   <h2>{selectedFriend.name}</h2>
                   <p>Daily stress trend (demo)</p>
@@ -205,10 +211,11 @@ export default function Friends() {
                       borderRadius: "8px",
                       padding: "8px",
                     }}
-                    formatter={(value: number, _name: string, props: any) => [
-                      props.payload.label,
-                      "Level",
-                    ]}
+                    formatter={(
+                      value: number | undefined,
+                      _name: string,
+                      props: any,
+                    ) => [props.payload.label, "Level"]}
                   />
                   <Area
                     type="monotone"
