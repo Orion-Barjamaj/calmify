@@ -195,7 +195,7 @@ export default function Friends() {
                   <YAxis
                     domain={[0, 4]}
                     ticks={[1, 2, 3]}
-                    tickFormatter={(value) => {
+                    tickFormatter={(value: any) => {
                       if (value === 1) return "Calm";
                       if (value === 2) return "Moderate";
                       if (value === 3) return "Stressed";
@@ -211,11 +211,10 @@ export default function Friends() {
                       borderRadius: "8px",
                       padding: "8px",
                     }}
-                    formatter={(
-                      value: number | undefined,
-                      _name: string,
-                      props: any,
-                    ) => [props.payload.label, "Level"]}
+                    formatter={(value, _name, props) => [
+                      props?.payload?.label ?? value,
+                      "Level",
+                    ]}
                   />
                   <Area
                     type="monotone"
