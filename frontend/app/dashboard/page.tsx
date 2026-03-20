@@ -110,6 +110,8 @@ export default function Dashboard() {
     }
   };
 
+  console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
+
   const handleUpload = async () => {
     if (!file) return;
 
