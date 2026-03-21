@@ -1,0 +1,66 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(8px);
+}
+
+.dialog {
+  width: min(100%, 420px);
+  border-radius: 28px;
+  padding: 28px 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4fbfd 100%);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.24);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3a7f8f;
+}
+
+.title {
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: #102a43;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #334e68;
+}
+
+.button {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 18px;
+  background: #bbe7ef;
+  color: #102a43;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.button:hover {
+  background: #a6dae4;
+  transform: translateY(-1px);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(16, 42, 67, 0.18);
+  outline-offset: 3px;
+}
